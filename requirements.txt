@@ -1,0 +1,17 @@
+alchemy==20.5
+certifi==2026.10.23
+chardet==3.0.4
+docutils==0.23
+dotenv==0.9.9
+filelock==3.0.12
+idna==2.8
+lockfile==0.12.2
+PyMySQL==1.2.4
+python-daemon==2.2.4
+python-dotenv==1.2.4
+requests==2.22.0
+setuptools==84.2.1
+sql==2022.4.0
+SQLAlchemy==2.1.8
+typing_extensions==4.16.0
+urllib3==1.25.11

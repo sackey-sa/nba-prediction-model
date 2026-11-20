@@ -1,6 +1,6 @@
 """ This file creates the tables we defined in models """
-from database import engine
-from models import Base
+from data_access.database import engine
+from data_access.models import Base
 
 
 

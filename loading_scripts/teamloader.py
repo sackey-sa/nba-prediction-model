@@ -1,11 +1,11 @@
-""" This file creates the tables we defined in models """
+""" This file loads the team objects into the database from API data """
 from typing import Any
 from sqlalchemy.orm import Session
-from nba_api.stats.endpoints import leaguestandings #type :ignore[import-untyped]
-from nba_api.stats.static import teams
-from database import engine
-from dataschema import StaticTeam,StandingsTeam
-from models import Team
+from nba_api.stats.endpoints import leaguestandings #type: ignore[import-untyped]
+from nba_api.stats.static import teams #type: ignore[import-untyped]
+from data_access.database import engine
+from data_access.dataschema import StaticTeam,StandingsTeam
+from data_access.models import Team
 
 
 

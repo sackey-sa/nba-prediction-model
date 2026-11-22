@@ -27,7 +27,7 @@ class Player(Base):
     name:Mapped[str] = mapped_column(String(100))
     position:Mapped[str] = mapped_column(String(50))
     current_team:Mapped["Team"] = relationship(back_populates="players")
-    current_team_id :Mapped[int] = mapped_column(ForeignKey("team.team_id"))
+    current_team_id :Mapped[int|None] = mapped_column(ForeignKey("team.team_id"))
     player_stats : Mapped[list["PlayerGameStats"]] = relationship(back_populates="player")
 
 class Game(Base):

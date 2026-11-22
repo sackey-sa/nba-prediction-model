@@ -16,3 +16,17 @@ class StandingsTeam(BaseModel):
 
  ## Rule of thumb, if the API's name already fits your code style,
  # use it directly. if it dosen't alias it
+
+class StaticPlayer(BaseModel):
+    """ Main API Endpoint for player info"""
+    player_id : int = Field(alias="id")
+    name : str = Field(alias="full_name")
+
+class IndexPlayer(BaseModel):
+    """ Represents Needed Info from playerindex endpoint"""
+    player_id :int = Field(alias="PERSON_ID")
+    position : str = Field(alias="POSITION")
+    current_team_id : int = Field(alias="TEAM_ID")
+## Player.position
+## Player.current_team_id
+##player.stats

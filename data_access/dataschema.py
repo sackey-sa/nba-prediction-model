@@ -29,6 +29,7 @@ class IndexPlayer(BaseModel):
     player_id :int = Field(alias="PERSON_ID")
     position : str = Field(alias="POSITION")
     current_team_id : int = Field(alias="TEAM_ID")
+    current_team_name : str | None = Field(alias="TEAM_NAME")
 ## Player.position
 ## Player.current_team_id
 ##player.stats
@@ -41,4 +42,5 @@ class GameLogRow(BaseModel):
     team_id : int = Field(alias="TEAM_ID")
     final_score : int = Field(alias="PTS")
     matchup : str = Field(alias="MATCHUP")
+    team_name : str = Field(alias="TEAM_NAME")
 

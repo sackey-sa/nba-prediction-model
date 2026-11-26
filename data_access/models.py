@@ -28,6 +28,7 @@ class Player(Base):
     position:Mapped[str] = mapped_column(String(50))
     current_team:Mapped["Team"] = relationship(back_populates="players")
     current_team_id :Mapped[int|None] = mapped_column(ForeignKey("team.team_id"))
+    current_team_name : Mapped[str | None] = mapped_column(String(100))
     player_stats : Mapped[list["PlayerGameStats"]] = relationship(back_populates="player")
 
 class Game(Base):
@@ -36,8 +37,10 @@ class Game(Base):
     game_id: Mapped[str] = mapped_column(String(100),primary_key=True)
     game_date:Mapped[date] = mapped_column(Date)
     season : Mapped[str] = mapped_column(String(30))
+    home_team_name : Mapped[str] = mapped_column(String(100))
     home_team_id: Mapped[int] = mapped_column(ForeignKey("team.team_id"))
     away_team_id : Mapped[int] = mapped_column(ForeignKey("team.team_id"))
+    away_team_name : Mapped[str] = mapped_column(String(100))
     home_final_score : Mapped[Optional[int]] = mapped_column(SMALLINT,nullable=True)
     away_final_score : Mapped[Optional[int]] = mapped_column(SMALLINT,nullable=True)
     game_status : Mapped[str] = mapped_column(String(40))

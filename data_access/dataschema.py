@@ -1,6 +1,8 @@
 """ This file is  responsible for outlining the 
 forms and type of data we import and export from API """
+from datetime import date
 from pydantic import BaseModel, Field
+
 
 class StaticTeam(BaseModel):
     """ Describes the form of static data for Teams(ID,Name,Abbreviation)"""
@@ -30,3 +32,13 @@ class IndexPlayer(BaseModel):
 ## Player.position
 ## Player.current_team_id
 ##player.stats
+
+class GameLogRow(BaseModel):
+    """ Represents information from teamgamelogs API endpoint """
+    game_id : str = Field(alias="GAME_ID")
+    game_date : date = Field(alias="GAME_DATE")
+    season : str = Field(alias="SEASON_YEAR")
+    team_id : int = Field(alias="TEAM_ID")
+    final_score : int = Field(alias="PTS")
+    matchup : str = Field(alias="MATCHUP")
+

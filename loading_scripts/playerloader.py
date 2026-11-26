@@ -53,7 +53,7 @@ def to_player(static_info :StaticPlayer,endpoint_info : IndexPlayer ) -> Player:
         position = endpoint_info.position,
         current_team_id = endpoint_info.current_team_id if endpoint_info.current_team_id != 0 else None
     )
-    
+  
 
 
 def load_players() -> None:

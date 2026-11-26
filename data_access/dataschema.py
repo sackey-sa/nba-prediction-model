@@ -44,3 +44,26 @@ class GameLogRow(BaseModel):
     matchup : str = Field(alias="MATCHUP")
     team_name : str = Field(alias="TEAM_NAME")
 
+class PlayerLogRow(BaseModel):
+    """ Represents information from playergamelogs API endpoint"""
+    game_id: str = Field(alias="GAME_ID")
+    player_id : int = Field(alias="PLAYER_ID")
+    team_id : int = Field(alias="TEAM_ID")
+    pts : int = Field(alias="PTS")
+    ast: int = Field(alias="AST")
+    total_rebounds : int = Field(alias="REB")
+    fga : int = Field(alias="FGA")
+    fgm: int = Field(alias="FGM")
+    threepm : int = Field(alias="FG3M")
+    threepa : int = Field(alias="FG3A")
+    min : float = Field(alias="MIN")
+    fta : int  = Field(alias="FTA")
+    ftm : int = Field(alias="FTM")
+    steals : int = Field(alias="STL")
+    blocks : int = Field(alias="BLK")
+    off_rebounds : int = Field(alias="OREB")
+    def_rebounds :int = Field(alias="DREB")
+    turnovers : int = Field(alias="TOV")
+    
+    
+    

@@ -48,6 +48,7 @@ class PlayerLogRow(BaseModel):
     """ Represents information from playergamelogs API endpoint"""
     game_id: str = Field(alias="GAME_ID")
     player_id : int = Field(alias="PLAYER_ID")
+    player_name : str =Field(alias="PLAYER_NAME")
     team_id : int = Field(alias="TEAM_ID")
     pts : int = Field(alias="PTS")
     ast: int = Field(alias="AST")
@@ -64,6 +65,3 @@ class PlayerLogRow(BaseModel):
     off_rebounds : int = Field(alias="OREB")
     def_rebounds :int = Field(alias="DREB")
     turnovers : int = Field(alias="TOV")
-    
-    
-    

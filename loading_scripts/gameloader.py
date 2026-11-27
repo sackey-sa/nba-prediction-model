@@ -6,14 +6,14 @@ from data_access.database import engine
 from data_access.dataschema import GameLogRow
 from data_access.models import Game
 
-SEASON = "2026-27"
+
 SEASON_TYPE = "Regular Season"
 STATUS = "FINISHED"
 
-def fetch_games() -> dict[str,Any]:
+def fetch_games(season:str) -> dict[str,Any]:
     """ Function grabs initial game info from API"""
 
-    game_info = teamgamelogs.TeamGameLogs(season_nullable=SEASON,
+    game_info = teamgamelogs.TeamGameLogs(season_nullable=season,
                                           season_type_nullable=SEASON_TYPE).get_normalized_dict()
     game_info_rows = game_info["TeamGameLogs"]
 
@@ -55,7 +55,7 @@ def to_game(home_game:GameLogRow,away_game:GameLogRow) -> Game:
     return Game(
         game_id = home_game.game_id,
         game_date = home_game.game_date,
-        season = SEASON,
+        season = home_game.season,
         home_team_id = home_game.team_id,
         home_team_name = home_game.team_name,
         away_team_id = away_game.team_id,
@@ -66,10 +66,10 @@ def to_game(home_game:GameLogRow,away_game:GameLogRow) -> Game:
         season_type = SEASON_TYPE
     )
 
-def load_games() -> None:
+def load_games(season:str) -> None:
     "Actually loads game values into database from API and helper functions to validate"
 
-    game_data = fetch_games()
+    game_data = fetch_games(season)
     validated_games = validate_game(game_data)
 
     with Session(engine) as session,session.begin():
@@ -79,4 +79,5 @@ def load_games() -> None:
 
 
 if __name__ == "__main__":
-    load_games()
+    for season in ["2022-23","2023-24","2024-25","2025-26","2026-27"]:
+        load_games(season)

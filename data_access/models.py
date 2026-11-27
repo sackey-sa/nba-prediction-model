@@ -25,7 +25,7 @@ class Player(Base):
     __tablename__ = "player"
     player_id : Mapped[int] = mapped_column(primary_key=True)
     name:Mapped[str] = mapped_column(String(100))
-    position:Mapped[str] = mapped_column(String(50))
+    position:Mapped[str | None] = mapped_column(String(50))
     current_team:Mapped["Team"] = relationship(back_populates="players")
     current_team_id :Mapped[int|None] = mapped_column(ForeignKey("team.team_id"))
     current_team_name : Mapped[str | None] = mapped_column(String(100))

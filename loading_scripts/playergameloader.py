@@ -80,7 +80,7 @@ def to_minimum_player(row:PlayerLogRow) -> Player:
         player_id = row.player_id,
         name = row.player_name,
         position = None,
-        current_team_id = row.team_id,
+        current_team_id = None,
         current_team_name = None)
 
 
